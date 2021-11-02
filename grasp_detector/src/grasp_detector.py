@@ -127,7 +127,7 @@ class GraspServer():
         rgb_img.normalise()
         rgb_img.img = rgb_img.img.transpose((2, 0, 1))
 
-        depth_img = image.Image(depth*100)
+        depth_img = image.Image(depth)
         depth_img.crop(bottom_right=bottom_right, top_left=top_left)
         depth_img.normalise()
         depth_img.img = depth_img.img.transpose((2, 0, 1))
