@@ -1,4 +1,4 @@
-# Niryo One as a Vision-Based Robotic Grasping Systems - Computer Engineering Master's Degree @ UNISA
+# Niryo One as a Vision-Based Robotic Grasping System - Computer Engineering Master's Degree @ UNISA
 
 ## Description
 
@@ -11,3 +11,7 @@ All the packages are released with the GPLv3 license except the ```aruco_detecto
 ## Instructions
 
 You can find code usage instructions [here](USAGE.md).
+
+## Documentation 
+
+In [doc](doc.pdf), you can find an explanation of the proposed Vision-Based Robotic Grasping System.
