@@ -1,0 +1,6 @@
+
+---
+# The values of the joints result of the IK for the pre-grasp pose.
+float64[] pre_joint_values
+# The values of the joints result of the IK for the grasp pose.
+float64[] joint_values

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<launch>
+
+    <rosparam command="load" file="$(find niryo_talker)/config/niryo_positions.yaml" />
+    <rosparam command="load" file="$(find niryo_talker)/config/adaptive-gripper.yaml" />
+
+    <include file="$(find grasp_detector)/launch/grasp_detector.launch"/>
+    <include file="$(find aruco_detector)/launch/aruco_detector.launch"/>
+
+    <node name="niryo_talker" pkg="niryo_talker" type="niryo_talker"  output="screen"/>
+
+    <include file="$(find niryo_one_gripper1_realsense_moveit_config)/launch/planning_context.launch">
+        <arg name="load_robot_description" value="true"/>
+        <arg name="robot_description" value="niryo_realsense_description"/>
+    </include>
+
+    <node name="niryo_realsense_robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen">
+        <remap from="/tf" to="/niryo_realsense/tf"/>
+        <remap from="/tf_static" to="/niryo_realsense/tf_static"/>
+        <remap from="/joint_states" to="/niryo_realsense/joint_states"/>
+        <remap from="robot_description" to="niryo_realsense_description"/>
+    </node>
+
+</launch>

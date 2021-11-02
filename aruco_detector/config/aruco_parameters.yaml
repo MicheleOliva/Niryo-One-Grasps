@@ -1,0 +1,11 @@
+ID_TO_FIND: 0
+
+MARKER_SIZE: 7 # cm
+
+R_WORLD_TO_ARUCO :  [[  0,  1, 0 ],
+                     [ -1,  0, 0 ],
+                     [  0,  0, 1 ]]
+
+P_ARUCO_WRT_WORLD: [[0.412],[0],[0]]
+
+WORKSPACE_CENTER_TO_ARUCO: [[0],[-0.128],[0]]

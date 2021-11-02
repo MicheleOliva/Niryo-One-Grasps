@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<launch>
+
+    <rosparam command="load" file="$(find aruco_detector)/config/aruco_parameters.yaml" />
+
+    <node name="aruco_detector" pkg="aruco_detector" type="aruco_detector.py"  output="screen"/>
+
+</launch>

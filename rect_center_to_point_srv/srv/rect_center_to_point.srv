@@ -1,0 +1,11 @@
+# 2D Point coordinate.
+int16[2] coordinates
+
+# Depth value of the aligned depth image in that coordinate.
+float32 depth
+
+---
+# The point 3D components.
+float32 x
+float32 y
+float32 z

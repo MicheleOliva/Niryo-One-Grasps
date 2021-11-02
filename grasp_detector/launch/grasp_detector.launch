@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<launch>
+
+    <arg name="network" default="/home/michele/catkin_ws/src/Niryo-One-Grasping/grasp_detector/robotic-grasping/trained-models/cornell-randsplit-rgbd-grconvnet3-drop1-ch32/epoch_19_iou_0.98"/>
+    
+    <!--827112071119-->
+    <arg name="cam_id" default='841512070267'/>
+
+    <rosparam command="load" file="$(find niryo_talker)/config/adaptive-gripper.yaml" />
+
+    <node name="realsense_images_publisher" pkg="grasp_detector" type="realsense_images_publisher.py"  output="screen" args = "--cam_id $(arg cam_id)"/>
+
+    <node name="grasp_detector" pkg="grasp_detector" type="grasp_detector.py"  output="screen" args = "--network $(arg network)"/>
+
+</launch>

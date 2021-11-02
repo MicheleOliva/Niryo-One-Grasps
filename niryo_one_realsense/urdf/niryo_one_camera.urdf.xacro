@@ -1,0 +1,53 @@
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="niryo_one">
+    <!-- Import Robot -->
+    <xacro:include filename="$(find niryo_one_realsense)/urdf/niryo_one.urdf.xacro" ns="niryo_one"/>
+    <xacro:include filename="$(find realsense2_description)/urdf/_d435.urdf.xacro" />
+    
+    <material name="white abs">
+        <color rgba="1 1 1 1"/>
+    </material>
+
+    <!-- Camera Stand  -->
+    <link name="camera_stand_link">
+        <inertial>
+            <origin xyz="0.0 0.0 0.0"
+                    rpy="0 0 0"/>
+            <mass value="0.001"/>
+            <inertia
+                    ixx="1E-06"
+                    ixy="0.0"
+                    ixz="0.0"
+                    iyy="1E-06"
+                    iyz="0.0"
+                    izz="1E-06"/>
+        </inertial>
+        <visual>
+            <origin xyz="0.0 0.0 0.0"
+                    rpy="3.14 1.57 0"/>
+            <geometry>
+                <mesh
+                    filename="package://niryo_one_realsense/meshes/realsense_support.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="white abs"/>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0"
+                    rpy="3.14 1.57 0"/>
+            <geometry>
+                <mesh
+                    filename="package://niryo_one_realsense/meshes/realsense_support.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+    
+    <joint name="camera_stand_joint" type="fixed">
+        <parent link="wrist_link" />
+        <child link="camera_stand_link" />
+        <origin xyz="-0.0297 0.021 0.0125" rpy="0 0 0" />
+    </joint>
+
+    <xacro:sensor_d435 parent="camera_stand_link" use_nominal_extrinsics="true" add_plug="true" use_mesh="true">
+        <origin xyz="-0.001 0.0185 -0.013" rpy="-1.57 0 0"/>
+    </xacro:sensor_d435>
+
+</robot>

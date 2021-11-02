@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: niryo_one_realsense
+    relative_path: urdf/niryo_one_camera.urdf.xacro
+    xacro_args: ""
+  SRDF:
+    relative_path: config/niryo_one.srdf
+  CONFIG:
+    author_name: Michele Oliva
+    author_email: m.oliva26@studenti.unisa.it
+    generated_timestamp: 1633340175
